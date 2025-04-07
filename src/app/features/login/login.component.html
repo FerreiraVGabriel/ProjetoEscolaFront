@@ -1,0 +1,27 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input id="name" formControlName="name" type="name" class="form-control" placeholder="Enter your name" />
+        @if(form.get('name')?.errors?.['required'] && (form.get('name')?.touched || submitted)){
+          <label class="error-input">
+              Campo Obrigatório!
+          </label>
+        }
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input id="password" formControlName="password" type="password" class="form-control" placeholder="Enter your password" />
+        @if(form.get('password')?.errors?.['required'] && (form.get('password')?.touched || submitted)){
+          <label class="error-input">
+              Campo Obrigatório!
+          </label>
+        }
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
+    </form>
+  </div>
+  

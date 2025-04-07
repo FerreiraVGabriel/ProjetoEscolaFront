@@ -1,0 +1,74 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{title}}</h5>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+            <div class="col-md-4">
+              <label for="name">Nome Aluno</label>
+              <input type="text" class="form-control" id="name" formControlName="name">
+              @if(myForm.get('name')?.errors?.['required'] && (myForm.get('name')?.touched || submitted)){
+                <label class="error-input">
+                    Campo Obrigatório!
+                </label>
+              }
+            </div>
+            <div class="col-md-4">
+                <label for="date">Nascimento</label>
+                <input type="text" class="form-control" id="date" formControlName="date" mask="d0/M0/0000">
+                @if(myForm.get('date')?.errors?.['required'] && (myForm.get('date')?.touched || submitted)){
+                  <label class="error-input">
+                      Campo Obrigatório!
+                  </label>
+                }
+            </div>
+            <div class="col-md-4">
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control" id="cpf" formControlName="cpf"  mask="000.000.000-00">
+                @if(myForm.get('cpf')?.errors?.['required'] && (myForm.get('cpf')?.touched || submitted)){
+                  <label class="error-input">
+                      Campo Obrigatório!
+                  </label>
+                }
+            </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="address">Endereço</label>
+          <input type="text" class="form-control" id="address" formControlName="address">
+          @if(myForm.get('address')?.errors?.['required'] && (myForm.get('address')?.touched || submitted)){
+            <label class="error-input">
+                Campo Obrigatório!
+            </label>
+          }
+        </div>
+        <div class="col-md-4">
+            <label for="phone">Celular</label>
+            <input type="numer" class="form-control" id="phone" formControlName="phone" mask="(00) 00000-0000">
+            @if(myForm.get('phone')?.errors?.['required'] && (myForm.get('phone')?.touched || submitted)){
+              <label class="error-input">
+                  Campo Obrigatório!
+              </label>
+            }
+        </div>
+        <div class="col-md-4">
+          <label for="competition">Escola</label>
+          <mat-select formControlName="school" placeholder="Selecione uma escola" class="form-control">
+            <ngx-mat-select-search [formControl]="schoolFilterCtrl"></ngx-mat-select-search>
+            <mat-option *ngFor="let school of filteredSchools | async" [value]="school.ICodEscola">
+              {{ school.SDescricao }}
+            </mat-option>
+          </mat-select>
+          @if(myForm.get('school')?.errors?.['required'] && (myForm.get('school')?.touched || submitted)){
+              <label class="error-input">
+                  Campo Obrigatório!
+              </label>
+            }
+        </div>
+  </div>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+  </div>

@@ -1,0 +1,13 @@
+.adjust-right {
+    display: flex !important;
+    flex-direction: row-reverse;
+}
+
+.adjust-left {
+    display: flex !important;
+    flex-direction:row;
+}
+
+.pointer {
+    cursor: pointer;
+}

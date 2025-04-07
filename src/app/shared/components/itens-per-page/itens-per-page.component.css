@@ -1,0 +1,14 @@
+.select-items{
+    padding-left: 4px;
+    margin-left: 4px;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+}
+
+.label-select {
+    margin-right: 10px;
+}

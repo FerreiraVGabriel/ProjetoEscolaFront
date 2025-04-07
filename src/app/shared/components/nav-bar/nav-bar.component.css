@@ -1,0 +1,27 @@
+.navbar-nav {
+    align-items: center;
+}
+
+  
+.profile-button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mat-menu-item {
+    display: flex;
+    align-items: center;
+}
+  
+.mat-menu-item mat-icon {
+    margin-right: 8px;
+}
+  
+li{
+    cursor: pointer;
+} 
+  
+  

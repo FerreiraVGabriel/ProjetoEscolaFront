@@ -1,0 +1,11 @@
+<div class="select-container"> 
+    <label for="itensPorPagina" class="label-select">Itens por página:</label>
+    <div class="select-box">
+      <select class="form-select" id="itensPorPagina" #itensPorPaginaSelect (change)="onItemsPerPageChange()">
+          @for(group of itemOptions; track group){
+              <option  [value]="group">{{ group }}</option>
+          }
+      </select>
+    </div>
+</div>
+  
